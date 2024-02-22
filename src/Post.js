@@ -1,16 +1,23 @@
-export default function Post() {
+import { formatISO9075 } from "date-fns";
+import { Link } from "react-router-dom";
+
+export default function Post({_id,title,summary,cover,content,createdAt,author}) {
     return (
         <div className="post">
         <div className="image">
-          <img src="https://techcrunch.com/wp-content/uploads/2024/01/pixta_94590765_L.jpg?w=1390&crop=1" alt=""></img>
+          <Link to={`/post/${_id}`}>
+            <img src={'http://localhost:4000/'+cover} alt=""></img>
+          </Link>
       </div>
         <div className="texts">
-          <h2>Dili wants to automate due diligence with AI</h2>
+          <Link to={`/post/${_id}`}>
+            <h2>{title}</h2>
+          </Link>
           <p className="info">
-            <span className="author">Ted Lee</span>
-            <time>2024-02-19 17:12</time>
+            <span className="author">{author.username}</span>
+            <time>{formatISO9075(new Date(createdAt))}</time>
           </p>
-          <p className="summary">Stephanie Song, formerly on the corporate development and ventures team at Coinbase, was often frustrated by the volume of due diligence tasks she and her team had to complete on a daily basis</p>
+          <p className="summary">{summary}</p>
         </div>
     </div>
     );
