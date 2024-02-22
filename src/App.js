@@ -3,6 +3,7 @@ import './App.css';
 import Layout from "./Layout";
 import { UserContextProvider } from "./UserContext";
 import CreatePost from "./pages/CreatePost";
+import EditPost from "./pages/EditPost";
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
 import PostPage from "./pages/PostPage";
@@ -17,7 +18,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
           <Route path="/create" element={<CreatePost />} />
-          <Route path="/post/:id" element={<PostPage />}/>
+          <Route path="/post/:id" element={<PostPage />} />
+          <Route path="/edit/:id" element={<EditPost />} />
         </Route>
       </Routes>
     </UserContextProvider>
